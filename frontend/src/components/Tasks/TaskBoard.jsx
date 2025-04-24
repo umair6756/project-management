@@ -55,7 +55,7 @@ const tasks = {
       tag: "Social Geek Made",
       tagColor: "bg-pink-200",
       labelColor: "bg-purple-200 text-purple-900",
-      avatars: ["male", "female"]
+      avatars: ["male", "female", "male"]
     }
   ],
   "Completed": [
@@ -89,7 +89,7 @@ const tasks = {
 };
 
 const AvatarIcon = ({ type }) => {
-  const base = "w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center border-2 border-white text-sm text-gray-700";
+  const base = "w-7 h-7 rounded-full bg-gray-200 flex items-center justify-center border-2 border-gray-500 text-md text-gray-700";
   return (
     <div className={base}>
       {type === "male" ? <FaMale /> : <FaFemale />}
@@ -99,25 +99,27 @@ const AvatarIcon = ({ type }) => {
 
 export default function TaskBoard() {
   return (
-    <div className="min-h-screen bg-[#f5f7fb] p-4 md:p-10 font-sans">
+    <div className="min-h-screen bg-[#f5f7fb] py-4 md:py-10 font-sans">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {Object.entries(tasks).map(([status, cards]) => (
           <div key={status}>
             <h2 className="font-semibold text-gray-800 text-lg mb-4">{status}</h2>
             <div className="space-y-6">
               {cards.map((card, idx) => (
-                <div key={idx} className={`bg-white border rounded-lg shadow-sm ${card.statusColor} border-b-4 p-4`}>
+                <div key={idx} className={`bg-white shadow-sm ${card.statusColor} border-b-4 p-4`}>
                   <div className="flex justify-between items-center mb-2">
                     <span className={`text-sm font-semibold px-2 py-1 rounded ${card.labelColor}`}>{card.title}</span>
-                    <div className="flex items-center gap-2">
-                      <span className="text-xs bg-yellow-300 px-2 py-0.5 rounded text-yellow-800 font-bold">
-                        {card.priority}
-                      </span>
-                      <div className="flex -space-x-2">
+                    <div className="flex flex-col">
+
+                      <div className="flex -space-x-3 p-1 ">
                         {card.avatars.map((type, i) => (
-                          <AvatarIcon key={i} type={type} />
+                          <AvatarIcon key={i} type={type}/>
                         ))}
                       </div>
+
+                      <span className="text-[10px] bg-yellow-300 px-2 py-0.5 rounded text-white font-bold">
+                        {card.priority}
+                      </span>
                     </div>
                   </div>
 

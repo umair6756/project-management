@@ -1,10 +1,13 @@
 import React from "react";
 import TaskBoard from "./TaskBoard";
+import TopNavbar from "../common/TopNavbar";
+import CreateButton from "../common/CreateButton";
 
 const TaskManagement = () => {
   return (
     <div className="bg-[#f5f7fb] min-h-screen p-6 md:p-10 font-sans md:ml-64">
-      <div className="text-2xl font-bold text-gray-800 mb-6">Task Management</div>
+      <TopNavbar/>
+      <CreateButton title="Create Task"/>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Task Progress */}
@@ -30,15 +33,16 @@ const TaskManagement = () => {
         </div>
 
         {/* Recent Activity */}
-        <div className="bg-white border border-gray-200 rounded-lg p-5">
+        <div className="bg-white border border-gray-200 rounded-lg px-5 py-9">
           <h3 className="font-semibold text-lg text-gray-800 mb-5">Recent Activity</h3>
+          <div className="border-l-[1px] border-gray-300">
           {[
             { initials: "RH", name: "Rechard Add New Task", time: "20Min ago", dot: "bg-green-400" },
             { initials: "SP", name: "Shipa Review Completed", time: "40Min ago", dot: "bg-blue-400" },
             { initials: "MR", name: "Mora Task To Completed", time: "1Hr ago", dot: "bg-red-400" },
           ].map((item, index) => (
-            <div key={index} className="flex items-start space-x-4 mb-6">
-              <span className={`w-2 h-2 mt-2 rounded-full ${item.dot}`}></span>
+            <div key={index} className="group flex items-start space-x-4 mb-6 border-b-[1px] border-gray-300 pb-5  ">
+              <span className={`w-2 h-2 mt-2 border-2 border-gray-300 relative right-1 rounded-full group-hover:w-4 group-hover:h-4 group-hover:right-2 transition-3 ${item.dot}`}></span>
               <div className="bg-gray-100 w-10 h-10 flex items-center justify-center rounded-full text-sm font-semibold text-white" style={{ backgroundColor: item.dot.replace('bg-', '') }}>
                 {item.initials}
               </div>
@@ -48,17 +52,18 @@ const TaskManagement = () => {
               </div>
             </div>
           ))}
+          </div>
         </div>
 
         {/* Allocated Task Members */}
-        <div className="bg-white border border-gray-200 rounded-lg p-5">
+        <div className="bg-white border border-gray-200 rounded-lg px-5 py-9" >
           <h3 className="font-semibold text-lg text-gray-800 mb-5">Allocated Task Members</h3>
           {[
             { name: "Lucinda Massey", role: "UI/UX Designer", img: "https://via.placeholder.com/40x40?text=L" },
             { name: "Ryan Nolan", role: "Website Designer", img: "https://via.placeholder.com/40x40?text=R" },
             { name: "Oliver Black", role: "App Developer", img: "https://via.placeholder.com/40x40?text=O" },
           ].map((member, index) => (
-            <div key={index} className="flex justify-between items-center mb-6">
+            <div key={index} className="flex justify-between items-center mb-6 border-b-[1px] border-gray-300 pb-5">
               <div className="flex items-center space-x-4">
                 <img src={member.img} alt={member.name} className="w-10 h-10 rounded-full" />
                 <div>
@@ -72,13 +77,6 @@ const TaskManagement = () => {
         </div>
       </div>
 
-      {/* Create Task Button */}
-      <div className="mt-10 text-right">
-        <button className="bg-[#623ce6] hover:bg-[#4a2bb0] text-white text-sm px-4 py-2 rounded flex items-center">
-          <span className="mr-2 text-lg">+</span>
-          Create Task
-        </button>
-      </div>
 
 
       <TaskBoard/>

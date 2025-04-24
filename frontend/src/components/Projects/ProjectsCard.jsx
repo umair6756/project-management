@@ -1,7 +1,8 @@
 import React from "react";
 import { FaPaintBrush, FaMobileAlt, FaEdit, FaTrash, FaPaperclip, FaClock, FaUsers, FaComments } from "react-icons/fa";
-import { BsPlusCircleFill } from "react-icons/bs";
 import TopNavbar from "../common/TopNavbar";
+import CreateButton from "../common/CreateButton";
+import { BsPlusCircleFill } from "react-icons/bs";
 
 const projects = [
   {
@@ -124,14 +125,9 @@ const ProjectsSection = () => {
     <div className="min-h-screen bg-gray-50 p-6 md:ml-64">
       <TopNavbar/>
 
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold">Projects</h1>
-        <button className="bg-purple-700 text-white px-4 py-2 rounded-md hover:bg-purple-800 flex items-center gap-2">
-          <BsPlusCircleFill /> Create Project
-        </button>
-      </div>
+      <CreateButton title="Create project"/>
 
-      <div className="border-b-[1px] border-gray-300 mb-9"></div>
+   
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-4 ">
         {projects.map((project, index) => (
