@@ -61,7 +61,7 @@ const EmployeCard = () => {
         <div key={index} className="bg-white rounded-lg shadow overflow-hidden flex flex-col md:flex-row items-center md:items-start">
           
           {/* Left section with image and stats */}
-          <div className="flex flex-col md:pl-8 py-6 w-40  md:">
+          <div className="flex flex-col md:pl-8 md:py-6 pt-6 w-40 ">
             <div className="w-30 h-31 flex items-center rounded-full mb-4 bg-gray-500">
              <img src={employImg} className="rounded-full p-1 w-full"/>
             </div>
@@ -82,14 +82,19 @@ const EmployeCard = () => {
           </div>
 
           {/* Vertical divider */}
-<div className="md:border-l-2 md:border-black ml-6 my-5 h-[85%]"></div>
+<div className="md:border-l-[1px] md:border-gray-300 md:ml-6 md:my-5 h-[85%]"></div>
 
           {/* Right section with details */}
           <div className="flex-1 p-6">
-            <div className="flex items-center justify-between">
-              <h2 className="font-bold text-lg text-gray-800">{emp.name}</h2>
-              <span className={`text-xs text-white px-2 py-1 rounded ${emp.tagColor}`}>{emp.tagText}</span>
-            </div>
+          <div className="flex flex-col items-center md:items-start">
+  <h2 className="font-bold text-lg text-gray-800">{emp.name}</h2>
+  <span className={`text-xs text-white px-2 py-1 my-1 rounded ${emp.tagColor}`}>
+    {emp.tagText}
+  </span>
+</div>
+
+<div className="md:border-b-[1px] border-gray-300 my-5"></div>
+
             <p className="text-gray-700 mt-2 text-sm">{emp.description}</p>
             <div className="flex gap-2 mt-4">
               <button className="bg-purple-800 hover:bg-purple-700 text-white text-sm px-4 py-2 rounded flex items-center gap-2">
