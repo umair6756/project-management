@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaHome, FaProjectDiagram, FaTicketAlt, FaUsers, FaChevronDown, FaBars } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Sidebar = ({ showSidebar, setShowSidebar }) => {
-  const [dropdown, setDropdown] = useState({ dashboard: false, projects: false });
+  const [dropdown, setDropdown] = useState({ employees: false, projects: false });
 
   const handleDropdown = (key) => {
     setDropdown((prev) => ({ ...prev, [key]: !prev[key] }));
@@ -15,25 +16,10 @@ const Sidebar = ({ showSidebar, setShowSidebar }) => {
         <span className="bg-white p-2 rounded-full text-purple-800"><FaHome /></span> My-Task
       </div>
       <nav>
-        <div>
-          <button onClick={() => handleDropdown('dashboard')} className="flex justify-between items-center w-full py-2 px-3 hover:bg-purple-700 rounded">
-            <span className="flex items-center gap-2"><FaHome /> Dashboard</span>
-            <FaChevronDown className={`transform transition-transform duration-300 ${dropdown.dashboard ? 'rotate-180' : ''}`} />
-          </button>
-          <AnimatePresence>
-            {dropdown.dashboard && (
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: 'auto', opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                className="ml-6"
-              >
-                <a href="#" className="block py-1">Hr Dashboard</a>
-                <a href="#" className="block py-1">Project Dashboard</a>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
+        <Link to='/' className="flex items-center gap-2 py-2 px-3 hover:bg-purple-700 rounded">
+      <FaTicketAlt /> Dashboard
+        
+        </Link>
 
         <div>
           <button onClick={() => handleDropdown('projects')} className="flex justify-between items-center w-full py-2 px-3 hover:bg-purple-700 rounded">
@@ -48,8 +34,28 @@ const Sidebar = ({ showSidebar, setShowSidebar }) => {
                 exit={{ height: 0, opacity: 0 }}
                 className="ml-6"
               >
-                <a href="#" className="block py-1">Project A</a>
-                <a href="#" className="block py-1">Project B</a>
+                <Link to='/project' className="block py-1">Projects</Link>
+                <Link to="/task" className="block py-1">Tasks</Link>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+
+        <div>
+          <button onClick={() => handleDropdown('employees')} className="flex justify-between items-center w-full py-2 px-3 hover:bg-purple-700 rounded">
+            <span className="flex items-center gap-2"><FaProjectDiagram /> Employees</span>
+            <FaChevronDown className={`transform transition-transform duration-300 ${dropdown.employees ? 'rotate-180' : ''}`} />
+          </button>
+          <AnimatePresence>
+            {dropdown.employees && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: 'auto', opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                className="ml-6"
+              >
+                <Link to='/employees' className="block py-1">Members</Link>
+                <Link to="/department" className="block py-1">Department</Link>
               </motion.div>
             )}
           </AnimatePresence>

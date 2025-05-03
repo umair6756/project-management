@@ -1,10 +1,12 @@
-// DashboardPage.jsx
+
 import { useState } from 'react';
 import Sidebar from '../components/common/Sidebar';
-import MainContent from '../components/Dashboard/MainContent';
-import { FaBars } from 'react-icons/fa';
 
-export default function DashboardPage() {
+import { FaBars } from 'react-icons/fa';
+import DepartmentTable from '../components/Department/DepartmentTable';
+// import DepartmentTable from '../components/Department/DepartmentTable';
+
+const DepartmentPage = () => {
   const [showSidebar, setShowSidebar] = useState(false);
 
   return (
@@ -16,8 +18,10 @@ export default function DashboardPage() {
             <FaBars className="text-2xl" />
           </button>
         </div>
-        <MainContent />
+         <DepartmentTable/>
       </div>
     </div>
   );
 }
+
+export default DepartmentPage

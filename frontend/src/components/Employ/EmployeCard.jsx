@@ -2,6 +2,9 @@ import React from "react";
 
 import employImg from '../bg1.jpg'
 
+import TopNavbar from '../common/TopNavbar'
+import CreateButton from '../common/CreateButton'
+import { div } from "framer-motion/client";
 const employees = [
   {
     name: "Luke Short",
@@ -56,7 +59,12 @@ const employees = [
 
 const EmployeCard = () => {
   return (
-    <div className="grid sm:grid-cols-2 gap-6 p-6 bg-gray-100 min-h-screen md:ml-64">
+    <div className="md:ml-64 p-6 bg-gray-100 min-h-screen">
+            <TopNavbar/>
+            <CreateButton title="Add Employ"/>
+    <div className="grid sm:grid-cols-2 gap-6  ">
+
+
       {employees.map((emp, index) => (
         <div key={index} className="bg-white rounded-lg shadow overflow-hidden flex flex-col md:flex-row items-center md:items-start">
           
@@ -107,6 +115,7 @@ const EmployeCard = () => {
           </div>
         </div>
       ))}
+    </div>
     </div>
   );
 }
