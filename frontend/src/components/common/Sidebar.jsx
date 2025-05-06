@@ -61,7 +61,7 @@ const Sidebar = ({ showSidebar, setShowSidebar }) => {
           </AnimatePresence>
         </div>
 
-        <a href="#" className="flex items-center gap-2 py-2 px-3 hover:bg-purple-700 rounded"><FaTicketAlt /> Tickets</a>
+        <Link to="/chat" className="flex items-center gap-2 py-2 px-3 hover:bg-purple-700 rounded"><FaTicketAlt /> Chat</Link>
         <a href="#" className="flex items-center gap-2 py-2 px-3 hover:bg-purple-700 rounded"><FaUsers /> Our Clients</a>
       </nav>
     </div>

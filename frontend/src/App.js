@@ -5,6 +5,7 @@ import DepartmentPage from './pages/DepartmentPage';
 import MembersPage from './pages/MembersPage';
 import ProjectsPage from './pages/ProjectsPage';
 import TaskPage from './pages/TaskPage';
+import ChatPage from './pages/ChatPage';
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
   <Route path='/task' element={<TaskPage/>}/>
   <Route path='/employees' element={<MembersPage/>}/>
   <Route path='/department' element={<DepartmentPage/>}/>
+  <Route path='/chat' element={<ChatPage/>}/>
+
 
 </Routes>
 </BrowserRouter>

@@ -37,7 +37,7 @@ const DepartmentTable = () => {
       </div>
 
       {/* Scroll wrapper */}
-      <div className="overflow-x-auto">
+      <div className="s">
         <table className="w-full divide-y divide-gray-200">
           <thead className="bg-gray-100">
             <tr>
